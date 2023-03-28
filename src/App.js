@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Component1 from "./components/Component1";
+import Component2 from "./components/Component2";
+import FuncStateComponent from "./components/FuncStateComponent";
+import PropsComp from "./components/PropsComp";
+import Card from "./components/Card";
+import Avatar from "./components/Avatar";
+import { useState, createContext } from "react";
+import ComponentA from "./components/ContextComps/ComponentA";
+import FormComp from "./components/FormComp";
+import UseEffectComp from "./components/UseEffectComp";
 
+export const messageContext = createContext(null);
+// messageContext.displayName = "message"
 function App() {
+  const [val, setVal] = useState("Initial Value");
+
+  const [mount, setMount] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      {mount && <UseEffectComp />}
+      <br /><br /><br />
+
+      <div 
+        
         >
-          Learn React
-        </a>
-      </header>
+        <button onClick={() => setMount(!mount)}>Mount/Unmount</button>
+      </div>
     </div>
   );
 }
