@@ -10,24 +10,25 @@ import { useState, createContext } from "react";
 import ComponentA from "./components/ContextComps/ComponentA";
 import FormComp from "./components/FormComp";
 import UseEffectComp from "./components/UseEffectComp";
+import ApiComp from "./components/ApiComp";
 
 export const messageContext = createContext(null);
 // messageContext.displayName = "message"
 function App() {
   const [val, setVal] = useState("Initial Value");
-
   const [mount, setMount] = useState(true);
 
   return (
     <div>
-      {mount && <UseEffectComp />}
-      <br /><br /><br />
+      {/* {mount && <UseEffectComp />}
+      <br />
+      <br />
+      <br />
 
-      <div 
-        
-        >
+      <div>
         <button onClick={() => setMount(!mount)}>Mount/Unmount</button>
-      </div>
+      </div> */}
+      <ApiComp/>
     </div>
   );
 }
