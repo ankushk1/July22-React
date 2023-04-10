@@ -11,6 +11,8 @@ import ComponentA from "./components/ContextComps/ComponentA";
 import FormComp from "./components/FormComp";
 import UseEffectComp from "./components/UseEffectComp";
 import ApiComp from "./components/ApiComp";
+import Form2 from "./components/Form2";
+import DarkLight from "./components/DarkLight";
 
 export const messageContext = createContext(null);
 // messageContext.displayName = "message"
@@ -28,7 +30,9 @@ function App() {
       <div>
         <button onClick={() => setMount(!mount)}>Mount/Unmount</button>
       </div> */}
-      <ApiComp/>
+      {/* <ApiComp/> */}
+      {/* <Form2/> */}
+      <DarkLight/>
     </div>
   );
 }

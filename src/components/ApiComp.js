@@ -2,21 +2,29 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import "../App.css";
 import ApiCompItems from "./ApiCompItems";
+import {useFetch} from '../utils/customHooks';
 
 const ApiComp = () => {
-  const [apiData, setApiData] = useState([]);
+  // const [apiData, setApiData] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
   const [select, setSelect] = useState("products");
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    (async () => {
-      const res = await fetch(`https://dummyjson.com/${select}`);
-      const json = await res.json();
-      setApiData(select === "products" ? json.products : json.users);
-      setLoading(false);
-    })();
-  }, [select]);
+  // Function will return data bases switch case (types)
+  
+  // useEffect(() => {
+  //   (async () => {
+  //     const res = await fetch(`https://dummyjson.com/${select}`);
+  //     const json = await res.json();
+  //     setApiData(select === "users" ? json.users : json.products );
+  //     setLoading(false);
+  //   })();
+  // }, [select]);
+
+  const {loading, apiData} = useFetch("https://dummyjson.com", select)
+
+
+
 
   return (
     <div className="my-3 mx-2">
@@ -55,6 +63,13 @@ const ApiComp = () => {
             >
               Users
             </button>
+            <button
+              className="btn  btn-lg btn-secondary mx-2"
+              onClick={() => setSelect("products/category/smartphones")}
+            >
+              Smart Phones
+            </button>
+            
           </div>
           <div className="d-flex flex-wrap justify-content-around">
             {apiData?.slice(0, 10)?.map((elem, idx) => {
