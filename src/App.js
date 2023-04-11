@@ -13,6 +13,12 @@ import UseEffectComp from "./components/UseEffectComp";
 import ApiComp from "./components/ApiComp";
 import Form2 from "./components/Form2";
 import DarkLight from "./components/DarkLight";
+import Counter from "./components/HOC/Counter";
+import Hover from "./components/HOC/Hover";
+import Products from "./components/HOC/Products";
+import Users from "./components/HOC/Users";
+import NestedState from "./components/NestedState";
+import UseReducer from "./components/UseReducer";
 
 export const messageContext = createContext(null);
 // messageContext.displayName = "message"
@@ -32,7 +38,13 @@ function App() {
       </div> */}
       {/* <ApiComp/> */}
       {/* <Form2/> */}
-      <DarkLight/>
+      {/* <DarkLight/> */}
+      {/* <Counter name="XYZ"/>
+      <Hover/> */}
+      {/* <Products/>
+      <Users/> */}
+      {/* <NestedState/> */}
+      <UseReducer/>
     </div>
   );
 }
