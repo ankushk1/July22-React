@@ -19,6 +19,7 @@ import Products from "./components/HOC/Products";
 import Users from "./components/HOC/Users";
 import NestedState from "./components/NestedState";
 import UseReducer from "./components/UseReducer";
+import Todo from "./components/Todo";
 
 export const messageContext = createContext(null);
 // messageContext.displayName = "message"
@@ -44,7 +45,9 @@ function App() {
       {/* <Products/>
       <Users/> */}
       {/* <NestedState/> */}
-      <UseReducer/>
+      {/* <UseReducer/> ; */}
+      <Todo/>
+
     </div>
   );
 }
