@@ -20,6 +20,8 @@ import Users from "./components/HOC/Users";
 import NestedState from "./components/NestedState";
 import UseReducer from "./components/UseReducer";
 import Todo from "./components/Todo";
+import UseMemoHook from "./components/UseMemoHook";
+import UseCallbackHook from "./components/UseCallbackHook";
 
 export const messageContext = createContext(null);
 // messageContext.displayName = "message"
@@ -46,7 +48,9 @@ function App() {
       <Users/> */}
       {/* <NestedState/> */}
       {/* <UseReducer/> ; */}
-      <Todo/>
+      {/* <Todo/> */}
+      {/* <UseMemoHook/> */}
+      <UseCallbackHook/>
 
     </div>
   );
