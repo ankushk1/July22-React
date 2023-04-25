@@ -50,7 +50,7 @@ function App() {
       {/* <UseReducer/> ; */}
       {/* <Todo/> */}
       {/* <UseMemoHook/> */}
-      <UseCallbackHook/>
+      {/* <UseCallbackHook/> */}
 
     </div>
   );
