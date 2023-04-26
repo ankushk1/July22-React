@@ -1,6 +1,10 @@
+import {useSelector} from 'react-redux';
 
 const Component1 = ({propVal, changeState}) => {
 
+
+  const globalStateCounter = useSelector((state) => state.counter);
+  console.log(globalStateCounter);
 
   const onClickChange = () => {
     changeState("New value")

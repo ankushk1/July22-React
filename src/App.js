@@ -22,6 +22,7 @@ import UseReducer from "./components/UseReducer";
 import Todo from "./components/Todo";
 import UseMemoHook from "./components/UseMemoHook";
 import UseCallbackHook from "./components/UseCallbackHook";
+import ReduxCounter from "./components/ReduxCounter";
 
 export const messageContext = createContext(null);
 // messageContext.displayName = "message"
@@ -48,10 +49,10 @@ function App() {
       <Users/> */}
       {/* <NestedState/> */}
       {/* <UseReducer/> ; */}
-      {/* <Todo/> */}
+      <Todo/>
       {/* <UseMemoHook/> */}
       {/* <UseCallbackHook/> */}
-
+      {/* <ReduxCounter/> */}
     </div>
   );
 }

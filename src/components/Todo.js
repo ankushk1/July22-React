@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeTodoState, todoSelector } from "../Redux/TodoSlice";
 
 const Todo = () => {
+  const dispatch = useDispatch();
+
+  const todosFromRedux = useSelector(todoSelector);
+  console.log(todosFromRedux);
+
   const [input, setInput] = useState("");
-  const [todoArr, setTodoArr] = useState([
-    { id: "1211a72e", text: "Todo 1", completed: false },
-    { id: "8b56ff49", text: "Todo 2", completed: false }
-  ]);
+  const [todoArr, setTodoArr] = useState(() => {
+    return todosFromRedux.length > 0
+      ? todosFromRedux
+      : [
+          { id: "1211a72e", text: "Todo 1", completed: false },
+          { id: "8b56ff49", text: "Todo 2", completed: false }
+        ];
+  });
 
   const ALL = "ALL";
   const COMPLETED = "COMPLETED";
@@ -65,6 +76,10 @@ const Todo = () => {
     setTodoArr(generatedArr);
   };
 
+  useEffect(() => {
+    dispatch(changeTodoState(todoArr));
+  }, [todoArr]);
+
   return (
     <div>
       <div className="text-center fs-2 fw-bold">Todo App</div>
@@ -123,7 +138,7 @@ const Todo = () => {
           </button>
         </div>
         <div className="mt-4">
-          {todoArr.length &&
+          {todoArr.length > 0 &&
             selectedFilter === ALL &&
             todoArr.map((elem, idx) => (
               <div
@@ -159,7 +174,7 @@ const Todo = () => {
                 </div>
               </div>
             ))}
-          {todoArr.length &&
+          {todoArr.length > 0 &&
             selectedFilter === COMPLETED &&
             todoArr.map(
               (elem, idx) =>
@@ -198,7 +213,7 @@ const Todo = () => {
                   </div>
                 )
             )}
-          {todoArr.length &&
+          {todoArr.length > 0 &&
             selectedFilter === PENDING &&
             todoArr.map(
               (elem, idx) =>
