@@ -1,20 +1,30 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Pages/Home";
-import Contact from "./components/Pages/Contact";
-import Signup from "./components/Pages/Signup";
-import Navbar from "./components/Pages/Navbar";
+import Signup from "./Integration/Users/Signup";
+import Signin from "./Integration/Users/Signin";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ProductList from "./Integration/Products/ProductList";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = () => {
   return (
-      <BrowserRouter>
-        <Navbar/>
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/signup/:id" element={<Signup />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <ToastContainer />
+      {/* <Navbar/> */}
+      <Routes>
+        <Route path="/" element={<Signup />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route
+          path="/products"
+          element={
+            <PrivateRoute>
+              <ProductList />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
